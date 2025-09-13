@@ -1,0 +1,203 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Add this at the top or anywhere in your CSS file */
+body {
+    background-image: url('bgss.png'); /* Replace with your image file path */
+    background-size: cover;      /* Makes sure the image covers the whole screen */
+    background-repeat: no-repeat; /* Prevents tiling */
+    background-position: center;  /* Centers the image */
+    font-family: Arial, sans-serif;
+}
+
+
+/* Navbar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    z-index: 1000;
+}
+
+#logo img {
+    height: 40px;
+    width: auto;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #007BFF;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Filter Section */
+.filter-container {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    background: #fff;
+    border-radius: 12px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.filter-container label {
+    font-weight: bold;
+    color: #333;
+}
+
+.filter-container select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.95em;
+    transition: all 0.2s ease;
+}
+
+.filter-container select:hover {
+    border-color: #007BFF;
+}
+
+/* Page Title */
+.page-title {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2em;
+    color: #000;
+}
+
+/* User Cards */
+.user-card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    max-width: 500px;
+    display: flex;             /* flex for vertical stacking */
+    flex-direction: column;    /* stack header + body vertically */
+    align-items: center;       /* center horizontally */
+    animation: fadeInUp 0.5s ease forwards;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+};
+
+
+.user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+}
+
+.user-card-header {
+    width: 100%;
+    background: linear-gradient(135deg, #007BFF, #00C6FF);
+    padding: 15px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;        /* center header text */
+}
+
+.user-card-body {
+    padding: 20px;
+    width: 100%;
+    display: flex;             /* flex for centering content */
+    flex-direction: column;    /* stack items vertically */
+    align-items: center;       /* center horizontally */
+    justify-content: center;   /* center vertically inside body */
+    text-align: center;        /* center text */
+}
+
+.user-info {
+    margin: 8px 0;
+    font-size: 0.95em;
+    color: #444;
+}
+.user-name {
+    background-color: #007BFF; /* blue background */
+    color: white;              /* white text */
+    padding: 8px 15px;         /* space inside the box */
+    border-radius: 8px;        /* rounded corners */
+    font-weight: bold;          /* bold text */
+    margin-bottom: 10px;        /* space below name */
+    display: inline-block;       /* shrink box to fit content */
+    text-align: center;         /* center text inside the box */
+}
+user-card-body {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Send Button */
+.send-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    font-size: 0.9em;
+    background: linear-gradient(135deg, #007BFF, #00C6FF);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;          /* space from details */
+}
+
+.send-btn:hover {
+    box-shadow: 0px 4px 15px rgba(0,123,255,0.5);
+    transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup | SkillSwap</title>
+  <link rel="stylesheet" href="signup.css"> <!-- linked CSS -->
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">SkillSwap</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Signup Form Section -->
+  <div class="signup-container">
+    <div class="signup-box">
+      <h1>Create Your Account</h1>
+      <form id="signupForm">
+        <div class="input-group">
+          <input type="text" id="name" placeholder="Full Name" required>
+        </div>
+        <div class="input-group">
+          <input type="email" id="email" placeholder="Email Address" required>
+        </div>
+        <div class="input-group">
+          <input type="password" id="password" placeholder="Password" required>
+          <small id="passwordStrength" class="strength-text"></small>
+        </div>
+
+        <!-- Password Rules -->
+        <ul class="password-rules">
+          <li id="lengthRule">❌ At least 6 characters</li>
+          <li id="upperRule">❌ At least 1 uppercase letter</li>
+          <li id="numberRule">❌ At least 1 number</li>
+          <li id="specialRule">❌ At least 1 special character (!@#$%^&*)</li>
+        </ul>
+
+        <button type="submit" class="btn">Sign Up</button>
+      </form>
+      <p class="login-link">Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+  </div>
+
+  <script src="signup.js"></script> <!-- linked JS -->
+</body>
+</html>

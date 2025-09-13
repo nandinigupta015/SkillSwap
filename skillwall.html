@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skill Wall | SkillSwap</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* --- Minimal page-scoped styles (you can move to style.css later) --- */
+    body { font-family: Arial, sans-serif; margin:0; background:#f7f8fb; color:#222; }
+    .container { max-width: 960px; margin: 32px auto; padding: 0 16px; }
+    .page-title { text-align:center; margin: 16px 0 8px; }
+    .page-sub { text-align:center; color:#555; margin-bottom: 24px; }
+    .grid {
+      display:grid; grid-template-columns: 1fr; gap: 16px;
+    }
+    @media (min-width: 820px) { .grid { grid-template-columns: 1fr 1fr; } }
+
+    .card {
+      background:#fff; border-radius:12px; padding:18px; 
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    }
+    .card h2 { margin:0 0 8px; font-size:20px; }
+    .help { color:#666; font-size:14px; margin-bottom:12px; }
+
+    .input-row {
+      display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;
+    }
+    .input-row input[type="text"] {
+      flex:1; min-width: 180px; padding:10px 12px; border:1px solid #ddd; border-radius:8px;
+    }
+    .input-row button {
+      border:0; padding:10px 14px; border-radius:8px; cursor:pointer; 
+      background:#007BFF; color:#fff;
+    }
+    .chips { display:flex; gap:8px; flex-wrap:wrap; min-height:38px; }
+    .chip {
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; border-radius:20px; background:#eef4ff; border:1px solid #d9e7ff;
+      font-size:14px;
+    }
+    .chip button {
+      border:0; background:transparent; cursor:pointer; font-size:16px; line-height:1;
+    }
+
+    .actions { display:flex; gap:10px; justify-content:flex-end; margin-top:18px; }
+    .btn {
+      border:0; padding:10px 14px; border-radius:8px; cursor:pointer;
+    }
+    .btn.primary { background:#1a9f6b; color:#fff; }
+    .btn.secondary { background:#eee; }
+    .toast { display:none; text-align:center; margin-top:12px; color:#1a9f6b; font-weight:600; }
+
+    .top-nav { display:flex; align-items:center; gap:10px; padding:12px 16px; background:#fff; border-bottom:1px solid #eee; }
+    .top-nav a { color:#007BFF; text-decoration:none; }
+    .top-nav .brand { margin-left:auto; font-weight:700; }
+    .muted { color:#666; font-size:13px; }
+    .pill { display:inline-block; padding:2px 8px; font-size:12px; background:#f0f0f0; border-radius:999px; }
+  </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div id="logo">
+            <img src="logo.png" alt="SkillSwap Logo">
+        </div>
+        <ul>
+            <li class="item"><a href="index.html">Home</a></li>
+            
+        </ul>
+    </nav>
+
+    <!-- Skill Wall Background Wrapper -->
+    <div class="skill-wall-form">
+        <!-- Simple top nav -->
+        <div class="top-nav">
+            <a href="getstarted.html" aria-label="Back to Get Started">← Back</a>
+            <span class="brand">SkillSwap</span>
+        </div>
+
+        <div class="container">
+            <h1 class="page-title">Build Your Skill Wall</h1>
+            
+
+            <div class="grid" role="region" aria-label="Skill editor">
+                <!-- Can Teach -->
+                <section class="card" aria-labelledby="teachTitle">
+                    <h2 id="teachTitle">Can Teach</h2>
+                    <p class="help">Add skills you’re comfortable teaching (e.g., <span class="pill">Python</span>, <span class="pill">Public Speaking</span>).</p>
+                    <div class="input-row">
+                        <input id="teachInput" type="text" placeholder="Add a skill (press Enter or use commas)" list="skillSuggestions" aria-label="Skill to teach"/>
+                        <button id="teachAddBtn" class="btn">Add</button>
+                    </div>
+                    <datalist id="skillSuggestions">
+                        <option>Python</option>
+                        <option>JavaScript</option>
+                        <option>UI/UX</option>
+                        <option>Graphic Design</option>
+                        <option>Video Editing</option>
+                        <option>Guitar</option>
+                        <option>Cooking</option>
+                        <option>Public Speaking</option>
+                        <option>Digital Marketing</option>
+                        <option>Data Structures</option>
+                        <option>C++</option>
+                    </datalist>
+                    <div id="teachChips" class="chips" aria-live="polite"></div>
+                </section>
+
+                <!-- Want to Learn -->
+                <section class="card" aria-labelledby="learnTitle">
+                    <h2 id="learnTitle">Want to Learn</h2>
+                    <p class="help">Add skills you want to learn (e.g., <span class="pill">React</span>, <span class="pill">Data Analysis</span>).</p>
+                    <div class="input-row">
+                        <input id="learnInput" type="text" placeholder="Add a skill (press Enter or use commas)" list="skillSuggestions" aria-label="Skill to learn"/>
+                        <button id="learnAddBtn" class="btn">Add</button>
+                    </div>
+                    <div id="learnChips" class="chips" aria-live="polite"></div>
+                </section>
+            </div>
+
+            <div class="actions">
+                <button id="clearBtn" class="btn secondary" aria-label="Clear all skills">Clear All</button>
+                <button id="saveBtn" class="btn primary" aria-label="Save skills">Save Skill Wall</button>
+            </div>
+
+            <div id="toast" class="toast" role="status" aria-live="polite">✅ Skill Wall saved!</div>
+            <p class="muted">Data is stored locally in your browser for now.</p>
+        </div>
+    </div>
+
+    <script src="skillwall.js"></script>
+</body>
+
+</html>

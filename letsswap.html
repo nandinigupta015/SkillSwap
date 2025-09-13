@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Swap | SkillSwap</title>
+    <link rel="stylesheet" href="letsswap.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div id="logo">
+            <img src="logo.png" alt="SkillSwap Logo">
+        </div>
+        <ul>
+            <li class="item"><a href="index.html">Home</a></li>
+            
+        </ul>
+    </nav>
+
+    <!-- Filter Section -->
+    <section class="filter-container">
+        <label for="skillFilter">Filter by Skill:</label>
+        <select id="skillFilter">
+            <option value="all">All</option>
+            <option value="sports">Sports</option>
+            <option value="technology">Technology</option>
+            <option value="music">Music</option>
+            <option value="art">Art</option>
+        </select>
+    </section>
+
+    <!-- Page Heading -->
+    <h1 class="page-title">Let's Swap</h1>
+
+    <!-- User Cards -->
+    <div id="user-list"></div>
+
+    <script src="letsswap.js"></script>
+</body>
+</html>

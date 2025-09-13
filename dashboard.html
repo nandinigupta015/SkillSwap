@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | SkillSwap</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">SkillSwap</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="skillwall.html">Skill Wall</a></li>
+      <li><a href="logout.html">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="dashboard-container">
+    <!-- Profile Section -->
+    <div class="profile-card">
+      <img id="profilePic" src="default-avatar.png" alt="Profile Picture" class="profile-pic">
+      <input type="file" id="uploadPic" accept="image/*">
+      
+      <h2 id="userName">Your Name</h2>
+      <p id="userBio">Your short bio goes here...</p>
+      <p><strong>Age:</strong> <span id="userAge">--</span></p>
+      <p><strong>Location:</strong> <span id="userLocation">--</span></p>
+      <p><strong>Mode:</strong> <span id="userMode">Learning</span></p>
+
+      <button id="editProfileBtn">Edit Profile</button>
+    </div>
+
+    <!-- Matches Section -->
+    <div class="matches-section">
+      <h2>Matches</h2>
+      <div class="tabs">
+        <button class="tab-btn" data-tab="new">New Matches</button>
+        <button class="tab-btn" data-tab="current">Current Matches</button>
+        <button class="tab-btn" data-tab="previous">Previous Matches</button>
+      </div>
+      <div id="matchesContainer">
+        <p>Select a tab to view matches</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Profile Modal -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Edit Profile</h2>
+      <form id="editProfileForm">
+        <input type="text" id="editName" placeholder="Full Name">
+        <textarea id="editBio" placeholder="Bio"></textarea>
+        <input type="number" id="editAge" placeholder="Age">
+        <input type="text" id="editLocation" placeholder="Location">
+        <select id="editMode">
+          <option value="Learning">Learning</option>
+          <option value="Teaching">Teaching</option>
+          <option value="Both">Both</option>
+        </select>
+        <button type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
+
